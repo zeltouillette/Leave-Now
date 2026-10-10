@@ -9,7 +9,7 @@ Ce document liste les évolutions prévues pour Leave Now. Il est mis à jour au
 
 | Phase | Sujet | Difficulté | Prérequis | État |
 |---|---|---|---|---|
-| 1 | [Langues : anglais et allemand](#phase-1--langues-anglais-et-allemand) | Faible | aucun | À faire |
+| 1 | [Langues : anglais et allemand](#phase-1--langues-anglais-et-allemand) | Faible | aucun | Terminée, relecture à faire |
 | 2 | [Retards : affichage plus clair](#phase-2--retards) | Faible | aucun | À faire |
 | 3 | [Source des données (API)](#phase-3--source-des-données-api) | Moyenne | aucun | À faire |
 | 4 | [Courses supprimées](#phase-4--courses-supprimées) | Moyenne | phase 3 | À faire |
@@ -38,10 +38,10 @@ Le système de langues existe déjà :
 - la langue du navigateur est choisie automatiquement ;
 - un sélecteur apparaît dans les réglages dès que deux langues sont disponibles.
 
-- [ ] Créer `i18n/en.js` et `i18n/de.js` à partir de `i18n/fr.js`.
-- [ ] Activer les deux langues dans `LANGUAGES` (`i18n/index.js`) et les ajouter à `FILES` dans `sw.js`.
-- [ ] Ajouter un test qui vérifie que chaque langue a exactement les mêmes clés et les mêmes variables (`{n}`, `{name}`, `{p}`) que le français.
-- [ ] Vérifier la mise en page avec les textes allemands, souvent plus longs : barre d'avance, boutons, badges des cartes.
+- [x] Créer `i18n/en.js` et `i18n/de.js` à partir de `i18n/fr.js`.
+- [x] Activer les deux langues dans `LANGUAGES` (`i18n/index.js`) et les ajouter à `FILES` dans `sw.js`.
+- [x] Ajouter un test qui vérifie que chaque langue a exactement les mêmes clés et les mêmes variables (`{n}`, `{name}`, `{p}`) que le français.
+- [x] Vérifier la mise en page avec les textes allemands, souvent plus longs : barre d'avance, boutons, badges des cartes.
 - [ ] Faire relire chaque traduction par une personne dont c'est la langue maternelle.
 - [ ] Facultatif : traduire le README (`README.en.md`, `README.de.md`).
 
@@ -175,3 +175,4 @@ Nouvelles idées, à placer plus tard dans une phase :
 | Date | Décision ou avancement |
 |---|---|
 | 10.10.2026 | Version 1.0 en ligne sur GitHub Pages. Licence GPL v3. Création de cette feuille de route. |
+| 10.10.2026 | Phase 1 : interface en allemand (orthographe suisse, vouvoiement « Sie ») et en anglais. En anglais, « Go now! » remplace « Leave now! », trop large sur téléphone. Le texte « Partez ! » est un peu plus petit dans toutes les langues pour laisser de la place à la destination. Correction d'un léger défilement horizontal dans les fenêtres de réglages. |

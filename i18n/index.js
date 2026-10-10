@@ -1,8 +1,9 @@
 /**
- * Traductions. Pour ajouter une langue (ex. allemand) :
- *   1. copier fr.js en de.js et traduire les textes (garder les {n}, {name}…) ;
+ * Traductions. Pour ajouter une langue (ex. italien) :
+ *   1. copier fr.js en it.js et traduire les textes (garder les {n}, {name}…) ;
  *   2. l'ajouter dans LANGUAGES ci-dessous ;
- *   3. ajouter 'i18n/de.js' à la liste FILES de sw.js (fonctionnement hors ligne).
+ *   3. ajouter 'i18n/it.js' à la liste FILES de sw.js (fonctionnement hors ligne).
+ * Le test tests/i18n.test.js vérifie qu'aucun texte ne manque.
  * Sans DOM : réutilisable aussi avec Node.
  */
 import fr from './fr.js';
@@ -10,9 +11,9 @@ import fr from './fr.js';
 /** Langues disponibles : code -> nom affiché dans les réglages. */
 export const LANGUAGES = {
   fr: 'Français',
-  // de: 'Deutsch',
+  de: 'Deutsch',
   // it: 'Italiano',
-  // en: 'English',
+  en: 'English',
 };
 
 let current = 'fr';

@@ -8,7 +8,8 @@ vous indique aussi **quand quitter la maison** pour arriver à l'arrêt avec l'a
 **Ouvrir l'application : <https://zeltouillette.github.io/Leave-Now/>**
 
 L'application est gratuite, sans compte et sans publicité. Il n'y a rien à installer : un navigateur suffit, sur
-téléphone, tablette ou ordinateur. Vos réglages restent sur votre appareil.
+téléphone, tablette ou ordinateur. Vos réglages restent sur votre appareil. L'application est disponible en français,
+en allemand et en anglais.
 
 L'idée vient de la vidéo YouTube d'[Aywen](https://www.youtube.com/@Aywen) :
 [J'ai inventé un objet tech qui n'existait pas (c'est trop pratique)](https://youtu.be/4oJ5NzMS_1s).
@@ -102,6 +103,8 @@ n'utilise pas l'avance globale.
 - **Changer l'ordre** : flèches **↑** et **↓** dans **Réglages → Mes arrêts**.
 - **Supprimer un arrêt** : ouvrez-le, puis touchez **Supprimer**.
 - **Garder l'écran allumé** (dans **Réglages**) : pratique pour une tablette posée dans l'entrée ou fixée au mur.
+- **Changer de langue** : **Réglages → Langue**. Au premier lancement, la langue de votre téléphone est choisie
+  automatiquement.
 
 ## Sauvegarder et changer d'appareil
 
@@ -192,15 +195,14 @@ incrémentez le numéro `CACHE` dans `sw.js`.
 
 ### Ajouter une langue
 
-L'interface est en français, mais tout est prêt pour l'allemand, l'italien ou l'anglais :
+L'interface existe en français, en allemand et en anglais. Pour ajouter une langue, par exemple l'italien :
 
-1. Copiez `i18n/fr.js` en `i18n/de.js` (ou `it.js`, `en.js`) et traduisez les textes. Gardez tels quels `{n}`,
-   `{name}` et `{p}`.
+1. Copiez `i18n/fr.js` en `i18n/it.js` et traduisez les textes. Gardez tels quels `{n}`, `{name}` et `{p}`.
 2. Décommentez la langue dans `LANGUAGES` (`i18n/index.js`).
-3. Ajoutez `'i18n/de.js'` à la liste `FILES` dans `sw.js`.
+3. Ajoutez `'i18n/it.js'` à la liste `FILES` dans `sw.js`.
 
-Un choix de langue apparaît alors dans les réglages. Au premier lancement, la langue du navigateur est choisie si elle
-est disponible.
+La langue apparaît alors dans les réglages. Au premier lancement, la langue du navigateur est choisie si elle est
+disponible. Le test `tests/i18n.test.js` vérifie automatiquement qu'aucun texte ne manque.
 
 ### Réutiliser la logique ailleurs (Raspberry Pi, écran e-ink…)
 

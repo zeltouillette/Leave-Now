@@ -6,7 +6,7 @@
  * Après une modification du code, la nouvelle version s'affiche donc au 2e rechargement.
  * Si vous ajoutez ou retirez un fichier : mettez à jour FILES et changez le numéro de CACHE.
  */
-const CACHE = 'leave-now-v1';
+const CACHE = 'leave-now-v2';
 const FILES = [
   './',
   'index.html',
@@ -22,6 +22,8 @@ const FILES = [
   'ui/storage.js',
   'i18n/index.js',
   'i18n/fr.js',
+  'i18n/de.js',
+  'i18n/en.js',
   'icons/icon.svg',
   'icons/icon-180.png',
   'icons/icon-192.png',

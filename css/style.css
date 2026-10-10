@@ -184,7 +184,10 @@ h2, h3 { margin: 0; }
 .row.ok :is(.cd-value, .cd-unit) { color: var(--ok); }
 .row.soon :is(.cd-value, .cd-unit) { color: var(--soon); }
 .row.go .cd-value, .row.go .cd-note { color: var(--go); }
-.row.go .cd-value { animation: pulse 1s ease-in-out infinite alternate; }
+.row.go .cd-value { /* texte plus long qu'un nombre (« Jetzt los! ») : plus petit pour laisser la place à la destination */
+  font-size: 1.25rem;
+  animation: pulse 1s ease-in-out infinite alternate;
+}
 @keyframes pulse { to { opacity: .5; } }
 @media (prefers-reduced-motion: reduce) { .row.go .cd-value { animation: none; } }
 
@@ -233,6 +236,9 @@ dialog::backdrop { background: rgb(0 0 0 / .65); }
 
 .stack { display: grid; gap: .9rem; }
 .field { display: grid; gap: .35rem; }
+/* Colonne = largeur disponible, jamais plus : sinon la largeur minimale d'un champ de saisie
+   élargit la fenêtre et provoque un petit défilement horizontal. */
+.dialog-inner, .stack, .field, .stop-list { grid-template-columns: minmax(0, 1fr); }
 .field label, .field > span, legend { color: var(--muted); font-size: .85rem; font-weight: 600; }
 h3 { color: var(--muted); font-size: .75rem; letter-spacing: .05em; text-transform: uppercase; }
 .field input, .field select {
