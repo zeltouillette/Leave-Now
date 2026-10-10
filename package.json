@@ -1,0 +1,9 @@
+{
+  "name": "departs",
+  "private": true,
+  "description": "Départs des transports publics suisses : à quelle heure partir de chez soi.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

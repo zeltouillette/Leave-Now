@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Prochains départs des transports publics suisses : à quelle heure partir de chez soi.">
+  <title>Départs</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="ui/app.js"></script>
+</head>
+<body>
+  <!-- Barre du haut : avance globale (choix rapide) + réglages -->
+  <header class="topbar">
+    <div id="global-margin" class="margin-bar" role="group" data-i18n-label="marginBar"></div>
+    <button id="open-settings" class="icon-btn" type="button" data-i18n-label="settings">⚙</button>
+    <p id="net-status" class="net-status" role="status"></p>
+  </header>
+
+  <main>
+    <div id="board" class="board"></div>
+    <div id="empty" class="empty" hidden>
+      <p data-i18n="empty"></p>
+      <button id="empty-add" class="btn primary" type="button" data-i18n="addStop"></button>
+    </div>
+    <noscript><p class="empty">Cette application a besoin de JavaScript.</p></noscript>
+  </main>
+
+  <!-- ===== Modèles clonés par ui/board.js ===== -->
+
+  <template id="card-tpl">
+    <section class="card">
+      <header class="card-head">
+        <h2><button class="card-title" type="button"></button></h2>
+        <button class="margin-btn" type="button"></button>
+      </header>
+      <p class="card-sub"></p>
+      <ol class="rows"></ol>
+      <p class="card-msg"></p>
+    </section>
+  </template>
+
+  <template id="row-tpl">
+    <li class="row">
+      <span class="line"></span>
+      <span class="info">
+        <span class="dest"></span>
+        <span class="when"><span class="time"></span> <span class="delay"></span> <span class="plat"></span></span>
+      </span>
+      <span class="countdown">
+        <small class="cd-label"></small>
+        <span><strong class="cd-value"></strong> <small class="cd-unit"></small></span>
+        <small class="cd-note"></small>
+      </span>
+    </li>
+  </template>
+
+  <!-- ===== Fenêtres (ui/settings.js) ===== -->
+
+  <!-- Ajout / modification d'un arrêt -->
+  <dialog id="stop-dialog">
+    <form id="stop-form" class="dialog-inner" method="dialog">
+      <h2 id="stop-title"></h2>
+
+      <div class="field">
+        <label for="station-input" data-i18n="station"></label>
+        <input id="station-input" type="search" autocomplete="off" enterkeyhint="search" data-i18n-placeholder="searchPlaceholder">
+        <ul id="station-results" class="results" hidden></ul>
+      </div>
+
+      <div id="stop-options" class="stack" hidden>
+        <div class="field">
+          <label for="stop-label" data-i18n="label"></label>
+          <input id="stop-label" type="text" maxlength="40">
+        </div>
+        <fieldset>
+          <legend data-i18n="types"></legend>
+          <div id="type-chips" class="chips"></div>
+        </fieldset>
+        <p id="choices-hint" class="hint" role="status"></p>
+        <fieldset>
+          <legend data-i18n="lines"></legend>
+          <div id="line-chips" class="chips"></div>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="destinations"></legend>
+          <div id="dest-chips" class="chips"></div>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="platforms"></legend>
+          <div id="platform-chips" class="chips"></div>
+        </fieldset>
+        <p class="hint" data-i18n="filterHint"></p>
+        <div class="field">
+          <label for="stop-walk" data-i18n="walk"></label>
+          <input id="stop-walk" type="number" min="0" max="180" inputmode="numeric" required>
+        </div>
+        <fieldset>
+          <legend data-i18n="stopMargin"></legend>
+          <div id="stop-margin" class="margin-bar"></div>
+        </fieldset>
+      </div>
+
+      <footer class="dialog-actions">
+        <button id="stop-delete" class="btn danger" type="button" data-i18n="delete"></button>
+        <button class="btn" type="button" data-close data-i18n="cancel"></button>
+        <button id="stop-save" class="btn primary" data-i18n="save"></button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Réglages -->
+  <dialog id="settings-dialog">
+    <div class="dialog-inner">
+      <h2 data-i18n="settings"></h2>
+
+      <section class="stack">
+        <h3 data-i18n="myStops"></h3>
+        <ul id="stop-list" class="stop-list"></ul>
+        <button id="add-stop" class="btn" type="button" data-i18n="addStop"></button>
+      </section>
+
+      <section class="stack">
+        <h3 data-i18n="display"></h3>
+        <label id="lang-row" class="field">
+          <span data-i18n="language"></span>
+          <select id="lang-select"></select>
+        </label>
+        <label id="wake-row" class="check">
+          <input id="keep-awake" type="checkbox">
+          <span data-i18n="keepAwake"></span>
+        </label>
+      </section>
+
+      <section class="stack">
+        <h3 data-i18n="backup"></h3>
+        <p class="hint" data-i18n="backupHint"></p>
+        <div class="buttons">
+          <button id="export-file" class="btn" type="button" data-i18n="exportFile"></button>
+          <button id="import-file" class="btn" type="button" data-i18n="importFile"></button>
+          <button id="share-link" class="btn" type="button" data-i18n="shareLink"></button>
+        </div>
+        <input id="import-input" type="file" accept=".json,application/json" hidden>
+      </section>
+
+      <p class="credits" data-i18n="credits"></p>
+
+      <footer class="dialog-actions">
+        <button class="btn primary" type="button" data-close data-i18n="close"></button>
+      </footer>
+    </div>
+  </dialog>
+
+  <template id="stop-item-tpl">
+    <li class="stop-item">
+      <span class="name"></span>
+      <button class="icon-btn up" type="button">↑</button>
+      <button class="icon-btn down" type="button">↓</button>
+      <button class="icon-btn edit" type="button">✎</button>
+    </li>
+  </template>
+
+  <!-- Avance d'un arrêt (bouton ⏱ d'une carte) -->
+  <dialog id="margin-dialog">
+    <div class="dialog-inner">
+      <h2 id="margin-title"></h2>
+      <p class="hint" data-i18n="stopMargin"></p>
+      <div id="margin-picker" class="margin-bar"></div>
+      <footer class="dialog-actions">
+        <button class="btn primary" type="button" data-close data-i18n="ok"></button>
+      </footer>
+    </div>
+  </dialog>
+</body>
+</html>
