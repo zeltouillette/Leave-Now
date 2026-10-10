@@ -1,5 +1,5 @@
 /*
- * Départs : styles.
+ * Leave Now : styles.
  * Sombre, gros caractères, lisible de loin. Mobile d'abord : une colonne sur téléphone,
  * plusieurs sur tablette ou grand écran. Les couleurs sont toutes ici, dans :root.
  */
@@ -14,7 +14,7 @@
   --on-accent: #04121f;
   --ok: #34d17a;   /* vert : plus de 3 min */
   --soon: #ffab2e; /* orange : 3 min ou moins, retards */
-  --go: #ff5757;   /* rouge : « Pars ! » */
+  --go: #ff5757;   /* rouge : « Partez ! » */
   --radius: 14px;
   color-scheme: dark;
   /* taille de base : grandit avec l'écran (tablette murale, grand écran…) */
@@ -71,6 +71,7 @@ h2, h3 { margin: 0; }
   font-size: 1.2rem;
   line-height: 1;
 }
+.icon-btn svg { display: block; width: 1.3rem; height: 1.3rem; margin: auto; }
 
 /* ---------- Sélecteur d'avance ---------- */
 

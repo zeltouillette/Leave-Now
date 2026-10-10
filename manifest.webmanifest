@@ -1,6 +1,6 @@
 {
-  "name": "Départs : quand partir de chez soi",
-  "short_name": "Départs",
+  "name": "Leave Now : quand partir de chez soi",
+  "short_name": "Leave Now",
   "description": "Prochains départs des transports publics suisses, avec l'heure à laquelle quitter la maison.",
   "lang": "fr",
   "start_url": "./",

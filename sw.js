@@ -6,7 +6,7 @@
  * Après une modification du code, la nouvelle version s'affiche donc au 2e rechargement.
  * Si vous ajoutez ou retirez un fichier : mettez à jour FILES et changez le numéro de CACHE.
  */
-const CACHE = 'departs-v1';
+const CACHE = 'leave-now-v1';
 const FILES = [
   './',
   'index.html',

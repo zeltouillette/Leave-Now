@@ -1,6 +1,6 @@
 // Textes de l'interface en français. {n}, {name}, {p} sont remplacés automatiquement.
 export default {
-  appName: 'Départs',
+  appName: 'Leave Now',
   settings: 'Réglages',
 
   // Avance à l'arrêt
@@ -13,21 +13,21 @@ export default {
   min: '{n} min',
 
   // Tableau
-  leaveIn: 'pars dans',
+  leaveIn: 'partez dans',
   minUnit: 'min',
-  go: 'Pars !',
+  go: 'Partez !',
   spare: '{n} min d’avance',
   spareNone: 'de justesse',
-  walkBadge: '🚶 {n} min',
-  marginBadge: '⏱ {n} min',
+  walkBadge: '{n} min à pied',
+  marginBadge: 'avance {n} min',
   platform: 'quai {p}',
   track: 'voie {p}',
   loading: 'Chargement…',
   noDepartures: 'Aucun départ prochainement',
   unavailable: 'Départs indisponibles pour le moment',
-  offline: '⚠ Hors ligne',
-  offlineSince: '⚠ Hors ligne · données d’il y a {n} min',
-  empty: 'Ajoute tes arrêts pour savoir quand partir de chez toi.',
+  offline: 'Hors ligne',
+  offlineSince: 'Hors ligne · données d’il y a {n} min',
+  empty: 'Ajoutez vos arrêts pour savoir quand partir de chez vous.',
 
   // Ajout / modification d'un arrêt
   addStop: 'Ajouter un arrêt',
@@ -67,12 +67,12 @@ export default {
   language: 'Langue',
   keepAwake: 'Garder l’écran allumé',
   backup: 'Sauvegarde',
-  backupHint: 'Pour retrouver tes réglages sur un autre appareil.',
+  backupHint: 'Pour retrouver vos réglages sur un autre appareil.',
   exportFile: 'Exporter un fichier',
   importFile: 'Importer un fichier',
   shareLink: 'Partager un lien',
   linkCopied: 'Lien copié dans le presse-papiers.',
-  confirmImport: 'Remplacer tes réglages actuels par ceux importés ({n} arrêt(s)) ?',
+  confirmImport: 'Remplacer vos réglages actuels par ceux importés ({n} arrêt(s)) ?',
   importError: 'Fichier ou lien invalide.',
   credits: 'Données : transport.opendata.ch',
   close: 'Fermer',

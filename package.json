@@ -1,7 +1,7 @@
 {
-  "name": "departs",
+  "name": "leave-now",
   "private": true,
-  "description": "Départs des transports publics suisses : à quelle heure partir de chez soi.",
+  "description": "Leave Now : à quelle heure partir de chez soi pour les transports publics suisses.",
   "type": "module",
   "scripts": {
     "test": "node --test"

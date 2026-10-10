@@ -8,9 +8,6 @@ import { effectiveMargin } from '../core/config.js';
 import { planStop, visible, status, MIN } from '../core/departures.js';
 import { groupKey } from '../core/scheduler.js';
 
-/** Icône de chaque type de transport (codes de l'API). */
-export const ICONS = { train: '🚆', bus: '🚌', tram: '🚊', ship: '⛴️', cableway: '🚡' };
-
 /** "B 120" -> "120", "M m2" -> "m2" (le type est évident) ; les trains gardent leur catégorie : "R 91", "IC 1". */
 export const lineLabel = line => line.replace(/^(B|T|M) /, '');
 

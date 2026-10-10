@@ -103,7 +103,7 @@ test('heure de départ maison = départ réel - marche - avance', () => {
   assert.equal(plan.lastChance, at('10:25'));
 });
 
-test('couleurs : vert > 3 min, orange ≤ 3 min, rouge « Pars ! » ensuite', () => {
+test('couleurs : vert > 3 min, orange ≤ 3 min, rouge « Partez ! » ensuite', () => {
   assert.deepEqual(status(plan, at('10:10')), { state: 'ok', minutes: 10, spare: 15 });
   assert.equal(status(plan, at('10:16:00')).state, 'ok');   // 4 min pile
   assert.deepEqual(status(plan, at('10:16:30')), { state: 'soon', minutes: 3, spare: 8 });
@@ -111,7 +111,7 @@ test('couleurs : vert > 3 min, orange ≤ 3 min, rouge « Pars ! » ensuite', ()
   assert.deepEqual(status(plan, at('10:19:30')), { state: 'go', minutes: 0, spare: 5 });
 });
 
-test('masquage souple : « Pars ! » pendant l’avance, masqué après la dernière chance', () => {
+test('masquage souple : « Partez ! » pendant l’avance, masqué après la dernière chance', () => {
   assert.deepEqual(status(plan, at('10:23:30')), { state: 'go', minutes: -4, spare: 1 });
   assert.equal(status(plan, at('10:24:30')).spare, 0);
   assert.equal(visible([plan], at('10:25:00')).length, 1);

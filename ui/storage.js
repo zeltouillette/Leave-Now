@@ -1,7 +1,7 @@
 // Sauvegarde de la config sur l'appareil (localStorage) : pas de compte, pas de serveur.
 import { defaultConfig, normalizeConfig } from '../core/config.js';
 
-const KEY = 'departs-config';
+const KEY = 'leave-now-config';
 
 export function load() {
   try {

@@ -44,7 +44,7 @@ export function visible(plans, now, max = MAX_SHOWN) {
  *   spare    minutes d'avance à l'arrêt si on part maintenant
  *   state    'ok'   vert, plus de 3 min
  *            'soon' orange, 3 min ou moins
- *            'go'   rouge « Pars ! » : de l'heure de départ maison jusqu'à la dernière chance.
+ *            'go'   rouge « Partez ! » : de l'heure de départ maison jusqu'à la dernière chance.
  *                   On arrivera avec moins d'avance que souhaité, mais on attrape encore le départ.
  */
 export function status(plan, now) {

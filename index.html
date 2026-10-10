@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0b0f14">
   <meta name="color-scheme" content="dark">
   <meta name="description" content="Prochains départs des transports publics suisses : à quelle heure partir de chez soi.">
-  <title>Départs</title>
+  <title>Leave Now</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
@@ -17,7 +17,10 @@
   <!-- Barre du haut : avance globale (choix rapide) + réglages -->
   <header class="topbar">
     <div id="global-margin" class="margin-bar" role="group" data-i18n-label="marginBar"></div>
-    <button id="open-settings" class="icon-btn" type="button" data-i18n-label="settings">⚙</button>
+    <button id="open-settings" class="icon-btn" type="button" data-i18n-label="settings">
+      <!-- roue dentée -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
     <p id="net-status" class="net-status" role="status"></p>
   </header>
 
@@ -164,7 +167,7 @@
     </li>
   </template>
 
-  <!-- Avance d'un arrêt (bouton ⏱ d'une carte) -->
+  <!-- Avance d'un arrêt (bouton d'avance d'une carte) -->
   <dialog id="margin-dialog">
     <div class="dialog-inner">
       <h2 id="margin-title"></h2>

@@ -10,7 +10,7 @@ import { searchStations, fetchBoard } from '../core/api.js';
 import {
   TRANSPORT_TYPES, MARGIN_PRESETS, createStop, normalizeConfig, exportJSON, importJSON, encodeConfig,
 } from '../core/config.js';
-import { ICONS, lineLabel } from './board.js';
+import { lineLabel } from './board.js';
 
 const CHOICES_LIMIT = 100;   // départs chargés pour proposer les choix (l'API en renvoie ~60 au plus)
 const SEARCH_DELAY_MS = 250; // attend la fin de la frappe avant de chercher : moins d'appels
@@ -179,7 +179,7 @@ function renderDraft() {
   $('#stop-label').value = draft.label;
   $('#stop-label').placeholder = draft.stationName;
   $('#stop-walk').value = draft.walk;
-  chips($('#type-chips'), TRANSPORT_TYPES, draft.types, type => `${ICONS[type]} ${t(`type_${type}`)}`, types => {
+  chips($('#type-chips'), TRANSPORT_TYPES, draft.types, type => t(`type_${type}`), types => {
     // autre type de transport : les lignes, destinations et quais proposés changent
     Object.assign(draft, { types, lines: [], destinations: [], platform: '' });
     loadChoices();
@@ -252,7 +252,8 @@ function showResults(list, emptyText = '') {
   const items = list.map(station => {
     const button = Object.assign(document.createElement('button'), {
       type: 'button',
-      textContent: `${ICONS[station.icon] ?? '📍'} ${station.name}`,
+      // le type aide à distinguer une gare d'un arrêt de bus du même nom
+      textContent: TRANSPORT_TYPES.includes(station.icon) ? `${station.name} · ${t(`type_${station.icon}`)}` : station.name,
     });
     button.addEventListener('click', () => selectStation(station));
     const item = document.createElement('li');
@@ -294,7 +295,7 @@ function deleteDraft() {
 
 function exportFile() {
   const url = URL.createObjectURL(new Blob([exportJSON(ctx.getConfig())], { type: 'application/json' }));
-  Object.assign(document.createElement('a'), { href: url, download: 'departs-config.json' }).click();
+  Object.assign(document.createElement('a'), { href: url, download: 'leave-now-config.json' }).click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
