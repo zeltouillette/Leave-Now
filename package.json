@@ -1,6 +1,7 @@
 {
   "name": "leave-now",
   "private": true,
+  "license": "GPL-3.0-only",
   "description": "Leave Now : à quelle heure partir de chez soi pour les transports publics suisses.",
   "type": "module",
   "scripts": {

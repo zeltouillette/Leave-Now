@@ -23,6 +23,7 @@ téléphone, tablette ou ordinateur. Vos réglages restent sur votre appareil.
 - [Bon à savoir](#bon-à-savoir)
 - [Héberger votre propre copie](#héberger-votre-propre-copie)
 - [Pour les développeurs](#pour-les-développeurs)
+- [Licence](#licence)
 
 ---
 
@@ -220,3 +221,13 @@ for (const stop of config.stops) {
 
 Un écran e-ink ne peut pas se rafraîchir chaque seconde. Il vaut mieux y afficher l'heure de départ (`leaveAt`) qu'un
 compte à rebours, et utiliser `createScheduler` (`core/scheduler.js`) pour regrouper les appels.
+
+---
+
+## Licence
+
+Copyright (C) 2026 zeltouillette
+
+Ce projet est distribué sous la licence [GNU GPL v3](LICENSE). Vous pouvez utiliser, modifier et redistribuer le code
+librement. Si vous publiez une version modifiée, elle doit rester sous la même licence et son code source doit rester
+accessible. L'application est fournie sans aucune garantie.
