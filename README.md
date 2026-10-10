@@ -10,6 +10,9 @@ vous indique aussi **quand quitter la maison** pour arriver à l'arrêt avec l'a
 L'application est gratuite, sans compte et sans publicité. Il n'y a rien à installer : un navigateur suffit, sur
 téléphone, tablette ou ordinateur. Vos réglages restent sur votre appareil.
 
+L'idée vient de la vidéo YouTube d'[Aywen](https://www.youtube.com/@Aywen) :
+[J'ai inventé un objet tech qui n'existait pas (c'est trop pratique)](https://youtu.be/4oJ5NzMS_1s).
+
 ---
 
 ## Sommaire
@@ -23,6 +26,7 @@ téléphone, tablette ou ordinateur. Vos réglages restent sur votre appareil.
 - [Bon à savoir](#bon-à-savoir)
 - [Héberger votre propre copie](#héberger-votre-propre-copie)
 - [Pour les développeurs](#pour-les-développeurs)
+- [Feuille de route](#feuille-de-route)
 - [Licence](#licence)
 
 ---
@@ -115,7 +119,8 @@ Avant de remplacer quoi que ce soit, l'application demande toujours une confirma
 
 - **Données** : horaires et temps réel de [transport.opendata.ch](https://transport.opendata.ch), le service ouvert des
   transports publics suisses. La couverture est donc limitée à la Suisse.
-- **Suppressions** : l'API n'indique pas les courses annulées. Un bus supprimé s'affiche comme un bus normal.
+- **Suppressions** : l'API ne signale pas les courses supprimées. Un bus supprimé peut donc s'afficher comme un bus
+  normal. Une amélioration est prévue (voir la [feuille de route](ROADMAP.md)).
 - **Temps réel** : les retards ne sont connus que pour les départs proches, environ 30 min pour les bus et plusieurs
   heures pour les trains. Au-delà, c'est l'horaire prévu qui s'affiche.
 - **Lignes rares** : les lignes et quais proposés viennent des prochains départs. Une ligne qui ne circule pas en ce
@@ -223,6 +228,11 @@ Un écran e-ink ne peut pas se rafraîchir chaque seconde. Il vaut mieux y affic
 compte à rebours, et utiliser `createScheduler` (`core/scheduler.js`) pour regrouper les appels.
 
 ---
+
+## Feuille de route
+
+Les prochaines évolutions sont décrites dans [ROADMAP.md](ROADMAP.md) : anglais et allemand, temps de marche calculé
+automatiquement, affichage des retards et des courses supprimées.
 
 ## Licence
 
